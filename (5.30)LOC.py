@@ -1,9 +1,15 @@
 #Law of Cosine Program
 #Imported Libraries
 import math #allows this program to use arccos and cosine operations. As well as converting answers from radian to degrees
+#(Additional Info on Library) https://www.studytonight.com/post/trigonometric-function-in-python
 import re #Imports regular expression commands to track specific inputs
+#(Additional Info on Library) https://www.w3schools.com/python/python_regex.asp 
+#Functions
 #Functions
 def SSS():
+    Sa_Test = re.match("[0-9.]", Sa) #Checks if the input includes any set of numbers and or periods
+    Sb_Test = re.match("[0-9.]", Sb)
+    Sc_Test = re.match("[0-9.]", Sc)
     Sa = input("Enter First Side Value(a):") #Enter all values for sides
     Sb = input("Enter Second Side Value(b):")
     Sc = input("Enter Third Side Value(c):")
@@ -34,10 +40,10 @@ def SAS():
     SSb = input("Enter First Side Value(b):") #Enters side values of triangle
     SSc = input("Enter Second Side Value(c):")
     SSA = input("Enter the angle(degrees) in between the sides(CosA):") #Enter the angle between the two sides
-    SSb_Test = re.match("[0-9.]", SSb) #Tests if the input contains any real number and a decimal point
+    SSb_Test = re.match("[0-9.]", SSb) #Checks if the input includes any set of numbers and or periods
     SSc_Test = re.match("[0-9.]", SSc)
     SSA_Test = re.match("[0-9.]", SSA)
-    if SSb_Test and SSc_Test and SSA_Test:
+    if SSb_Test and SSc_Test and SSA_Test: #If each input is an integer or a decimal, continue the program, else new inputs will be requested
         SS_b = float(SSb)#Converts input into decimals
         SS_c = float(SSc)
         SS_A = float(SSA)
