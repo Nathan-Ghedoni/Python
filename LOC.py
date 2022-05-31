@@ -16,18 +16,23 @@ def SSS():
         S_a = float(Sa) #Convert values into decimals
         S_b = float(Sb)
         S_c = float(Sc)
-        CosA = ((S_a**2) - (S_b**2 + S_c**2))/(-2*S_b*S_c) #Performs Law of Cosine Equation before last step
-        if CosA < 1: #Arc cosine value cannot be greater than 1 (Trig Rule)
-            Cosine = math.acos(CosA) #(Last Step)Takes the result of equation and finds the arccos of answer
-            Angle = math.degrees(Cosine) #Converts answer into degrees
-            print(Angle)
-        elif CosA > -1: #Arc cosine value cannot be less than -1 (Trig Rule)
-            Cosine = math.acos(CosA) #(Last Step)Takes the result of equation and finds the arccos of answer
-            Angle = math.degrees(Cosine) #Converts answer into degrees
-            print(Angle)
+        if (S_a + S_b) > S_c and (S_b + S_c) > S_a and (S_a + S_c) > S_b: #Triangle Inequality Therom 
+            CosA = ((S_a**2) - (S_b**2 + S_c**2))/(-2*S_b*S_c) #Performs Law of Cosine Equation before last step
+            if CosA < 1: #Arc cosine value cannot be greater than 1 (Trig Rule)
+                Cosine = math.acos(CosA) #(Last Step)Takes the result of equation and finds the arccos of answer
+                Angle = math.degrees(Cosine) #Converts answer into degrees
+                print(Angle)
+            elif CosA > -1: #Arc cosine value cannot be less than -1 (Trig Rule)
+                Cosine = math.acos(CosA) #(Last Step)Takes the result of equation and finds the arccos of answer
+                Angle = math.degrees(Cosine) #Converts answer into degrees
+                print(Angle)
+            else:
+                print("Domain Error")
+                Format_Menu()
         else:
-            print("Domain Error")
-            Format_Menu()
+            print("Not a real triangle")
+            print("The sum of two sides must be greater than the third side")
+            SSS()
     else:
         print("Invalid Values")
         print("Make sure you input integers or decimals(Numbers)")
