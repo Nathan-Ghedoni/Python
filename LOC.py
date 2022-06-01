@@ -32,11 +32,11 @@ def SSS():
         else:
             print("Not a real triangle")
             print("The sum of two sides must be greater than the third side")
-            SSS()
+            Format_Menu()
     else:
         print("Invalid Values")
         print("Make sure you input integers or decimals(Numbers)")
-        SSS()
+        Format_Menu()
 def SAS():
     SSb = input("Enter First Side Value(b):") #Enters side values of triangle
     SSc = input("Enter Second Side Value(c):")
@@ -56,7 +56,7 @@ def SAS():
     else:
         print("Invalid Values")
         print("Make sure you input integers or decimals(Numbers)")
-        SAS()
+        Format_Menu()
 def Format_Menu():
     Format_Input = input("What data do you currently have?\n1.SSS\n2.SAS\nq.Quit Program\nEnter either 1,2, or q(Quit Program):")
     if Format_Input == "1":
