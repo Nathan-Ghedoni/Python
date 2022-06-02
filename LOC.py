@@ -9,14 +9,14 @@ def SSS():
     Sa = input("Enter First Side Value(a):") #Enter all values for sides
     Sb = input("Enter Second Side Value(b):")
     Sc = input("Enter Third Side Value(c):")
-    Sa_Test = re.match("^[0-9\.]*$", Sa) #Checks if the input includes any set of numbers and or periods
-    Sb_Test = re.match("^[0-9\.]*$", Sb)
-    Sc_Test = re.match("^[0-9\.]*$", Sc)
-    if Sa_Test and Sb_Test and Sc_Test and len(Sa) != 0 and len(Sb) != 0 and len(Sc) != 0: #If each input is an integer or a decimal, continue the program, else new inputs will be requested
+    Sa_Test = re.match("^[0-9]*\.[0-9]*$|^[0-9]*$", Sa) #Checks if the input includes any set of numbers and or periods
+    Sb_Test = re.match("^[0-9]*\.[0-9]*$|^[0-9]*$", Sb)
+    Sc_Test = re.match("^[0-9]*\.[0-9]*$|^[0-9]*$", Sc)
+    if Sa_Test and Sb_Test and Sc_Test and len(Sa) != 0 and len(Sb) != 0 and len(Sc) != 0 and Sa != "." and Sb != "." and Sc != ".": #If each input is an integer or a decimal, continue the program, else new inputs will be requested
         S_a = float(Sa) #Convert values into decimals
         S_b = float(Sb)
         S_c = float(Sc)
-        if (S_a + S_b) > S_c and (S_b + S_c) > S_a and (S_a + S_c) > S_b: #Triangle Inequality Therom 
+        if (S_a + S_b) > S_c and (S_a + S_c) > S_b and (S_b + S_c) > S_a:
             CosA = ((S_a**2) - (S_b**2 + S_c**2))/(-2*S_b*S_c) #Performs Law of Cosine Equation before last step
             if CosA < 1: #Arc cosine value cannot be greater than 1 (Trig Rule)
                 Cosine = math.acos(CosA) #(Last Step)Takes the result of equation and finds the arccos of answer
@@ -31,7 +31,7 @@ def SSS():
                 Format_Menu()
         else:
             print("Not a real triangle")
-            print("The sum of two sides must be greater than the third side")
+            print("The sum of two sides must be greater than the third")
             Format_Menu()
     else:
         print("Invalid Values")
@@ -41,10 +41,10 @@ def SAS():
     SSb = input("Enter First Side Value(b):") #Enters side values of triangle
     SSc = input("Enter Second Side Value(c):")
     SSA = input("Enter the angle(degrees) in between the sides(CosA):") #Enter the angle between the two sides
-    SSb_Test = re.match("^[0-9\.]*$", SSb) ##Checks if the input includes any set of numbers and or periods
-    SSc_Test = re.match("^[0-9\.]*$", SSc)
-    SSA_Test = re.match("^[0-9\.]*$", SSA)
-    if SSb_Test and SSc_Test and SSA_Test and len(SSA) != 0 and len(SSb) != 0 and len(SSc) != 0: #If each input is an integer or a decimal, continue the program, else new inputs will be requested
+    SSb_Test = re.match("^[0-9]*\.[0-9]*$|^[0-9]*$", SSb) ##Checks if the input includes any set of numbers and or periods
+    SSc_Test = re.match("^[0-9]*\.[0-9]*$|^[0-9]*$", SSc)
+    SSA_Test = re.match("^[0-9]*\.[0-9]*$|^[0-9]*$", SSA)
+    if SSb_Test and SSc_Test and SSA_Test and len(SSA) != 0 and len(SSb) != 0 and len(SSc) != 0 and SSA != "." and SSb != "." and SSc != ".": #If each input is an integer or a decimal, continue the program, else new inputs will be requested
         SS_b = float(SSb)#Converts input into decimals
         SS_c = float(SSc)
         SS_A = float(SSA)
@@ -80,4 +80,3 @@ def Format_Menu():
         Format_Menu()
 #Ask user if they are using SSS or SAS(Beginning of program)
 Format_Menu()
-
